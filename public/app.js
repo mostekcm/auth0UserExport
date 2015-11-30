@@ -11,13 +11,13 @@ angular.module( 'sample', [
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
-      templateUrl: 'home/home.html',
+      templateUrl: '/home/home.html',
       pageTitle: 'Homepage',
       requiresLogin: true
     })
     .when( '/login', {
       controller: 'LoginCtrl',
-      templateUrl: 'login/login.html',
+      templateUrl: '/login/login.html',
       pageTitle: 'Login'
     });
 
