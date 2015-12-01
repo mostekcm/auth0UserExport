@@ -8,7 +8,7 @@ angular.module( 'sample.home', [
   $scope.callApi = function() {
     // Just call the API as you'd do using $http
     $http({
-      url: 'http://localhost:3001/secured/ping',
+      url: '/secured/ping',
       method: 'GET'
     }).then(function() {
       alert("We got the secured data successfully");

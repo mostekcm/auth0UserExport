@@ -1,26 +1,25 @@
 {
-  "name": "node-js-getting-started",
+  "name": "auth0UserExport",
   "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "This is user maintenance, should be more than just export, but there you go, a better name will be forthcoming!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "ejs": "2.3.3",
+    "cors": "^2.3.1",
+    "dotenv": "^0.2.8",
+    "express-jwt": "~0.2.1",
     "express": "4.13.3",
-    "cool-ascii-faces": "~1.3.x",
-    "passport": "~0.3.2",
-    "passport-auth0": "~0.5.0",
     "cookie-parser": "~1.4.0",
-    "express-session": "~1.12.1"
+    "body-parser": "~1.14.1"
   },
   "engines": {
     "node": "0.12.7"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/mostekcm/auth0UserExport"
   },
   "keywords": [
     "node",
