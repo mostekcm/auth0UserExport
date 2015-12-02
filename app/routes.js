@@ -2,16 +2,35 @@
 
 // grab any models we need
 // example: var Nerd = require('./models/nerd');
-//var passport = require('passport');
+var User = require('./models/user');
 
 module.exports = function(app) {
 
     // server routes ===========================================================
     // handle things like api calls
     // authentication routes
+     // Auth0 server callbacks
+     app.get('/api/ping', function(req, res) {
+        res.send({text: "All good. You don't need to be authenticated to call this"});
+     });
 
-    /* sample api route
-    app.get('/api/nerds', function(req, res) {
+     app.get('/api/secured/ping', function(req, res) {
+        res.send({text: "All good. You only get this message if you're authenticated"});
+     });
+
+    // Create this route simply to
+     app.get('/auth0-variables.js', function(req, res) {
+         res.send("var AUTH0_CLIENT_ID='"+process.env.AUTH0_CLIENT_ID+"'; "+
+         "var AUTH0_DOMAIN='"+process.env.AUTH0_DOMAIN+"'; "+
+         "var AUTH0_CALLBACK_URL='"+process.env.AUTH0_CALLBACK_URL+"';");
+     });
+
+    // route to handle gets go here
+    app.get('/api/users', function(req, res) {
+
+    });
+    /* Sample API route
+     app.get('/api/nerds', function(req, res) {
         // use mongoose to get all nerds in the database
         Nerd.find(function(err, nerds) {
 
@@ -44,15 +63,6 @@ module.exports = function(app) {
             }
             res.redirect("/user");
         });*/
-
-    // Auth0 server callbacks
-    app.get('/ping', function(req, res) {
-        res.send(200, {text: "All good. You don't need to be authenticated to call this"});
-    });
-
-    app.get('/secured/ping', function(req, res) {
-        res.send(200, {text: "All good. You only get this message if you're authenticated"});
-    })
 
 };
 

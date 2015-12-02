@@ -8,11 +8,6 @@ var bodyParser = require('body-parser')
 
 // If not using heroku local: dotenv.load();
 
-var authenticate = jwt({
-  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
-  audience: process.env.AUTH0_CLIENT_ID
-});
-
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -29,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use('/secured', authenticate);
+app.use('/api/secured', authenticate);
 app.use(cors());
 
 // routes ==================================================
