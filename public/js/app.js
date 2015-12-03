@@ -1,6 +1,7 @@
 angular.module( 'sample', [
   'auth0',
   'ngRoute',
+    'auth0UserExport.main',
   'sample.home',
   'sample.login',
   'angular-storage',
@@ -20,7 +21,6 @@ angular.module( 'sample', [
       templateUrl: '/login/login.html',
       pageTitle: 'Login'
     });
-
 
   authProvider.init({
     domain: AUTH0_DOMAIN,

@@ -1,7 +1,7 @@
 angular.module( 'sample.login', [
   'auth0'
 ])
-.controller( 'LoginCtrl', function HomeController( $scope, auth, $location, store ) {
+.controller( 'LoginCtrl', function LoginController( $scope, auth, $location, store ) {
 
   $scope.login = function() {
     auth.signin({}, function(profile, token) {
