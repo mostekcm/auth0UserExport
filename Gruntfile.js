@@ -24,6 +24,7 @@ module.exports = function (grunt) {
             }
         },
 
+        /* Not sure how to get heroku to build this for us, copied manually for now and checked in buttons.css
         sass: {
             dist: {
                 files: [{
@@ -35,6 +36,7 @@ module.exports = function (grunt) {
                 }]
             }
         },
+         */
 
         cssmin: {
             target: {
@@ -52,8 +54,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-bower');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    // see above heroku issue: grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('build', ['sass','bower','uglify','cssmin']);
+    grunt.registerTask('build', ['bower','uglify','cssmin']);
 }
