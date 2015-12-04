@@ -1,4 +1,4 @@
-angular.module( 'sample.login', [
+angular.module( 'auth0UserExport.login', [
   'auth0'
 ])
 .controller( 'LoginCtrl', function LoginController( $scope, auth, $location, store ) {

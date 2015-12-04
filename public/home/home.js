@@ -1,4 +1,4 @@
-angular.module( 'sample.home', [
+angular.module( 'auth0UserExport.home', [
 'auth0'
 ])
 .controller( 'HomeCtrl', function HomeController( $scope, auth, $http, $location, store ) {

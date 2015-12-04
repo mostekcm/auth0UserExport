@@ -19,6 +19,13 @@
     <link rel="stylesheet" type="text/css" href="/login/login.css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <!-- must load jquery before angular!! -->
+    <link rel="stylesheet" type="text/css" href="/bower/min/jquery.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower/min/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower/min/buttons.css">
+    <script src="/bower/min/jquery.js"></script>
+    <script src="/bower/min/jquery.dataTables.js"></script>
+    <!-- done loading jquery -->
 
     <script type="text/javascript" src="/auth0-variables.js"></script>
     <script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.js"></script>
@@ -31,6 +38,16 @@
     <script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-angular-4.js"></script>
     <script src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"></script>
     <script src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js" type="text/javascript"></script>
+
+    <!-- Start angular-datatables -->
+    <script src="/bower/min/angular-datatables.js"></script>
+    <script src="/bower/min/buttons.colVis.js"></script>
+    <!-- script src="/bower/min/buttons.flash.js"></script -->
+    <script src="/bower/min/buttons.html5.js"></script>
+    <script src="/bower/min/buttons.print.js"></script>
+    <script src="/bower/min/dataTables.buttons.js"></script>
+    <script src="/bower/min/angular-datatables.buttons.js"></script>
+    <!-- End angular-datatables -->
 
     <!-- Start boilerplate merge -->
     <link rel="stylesheet" href="stylesheets/map.css">
@@ -49,6 +66,7 @@
     <script type="text/javascript" src="/js/main-controller.js"></script>
     <script type="text/javascript" src="/home/home.js"></script>
     <script type="text/javascript" src="/login/login.js"></script>
+    <script type="text/javascript" src="/users/users.js"></script>
 
 </head>
 <body ng-controller="MainCtrl">
@@ -77,8 +95,8 @@
                                 </span>
 
                             <ul role="menu" aria-labelledby="dLabel" class="dropdown-menu animated">
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href=""
+                                <li role="presentation" ng-hide="auth.isAuthenticated"><a role="menuitem" tabindex="-1" href="#/login">Login</a></li>
+                                <li role="presentation" ng-show="auth.isAuthenticated"><a role="menuitem" tabindex="-1" href=""
                                                            ng-click="logout()">Logout</a></li>
                             </ul>
                         </li>
@@ -96,10 +114,6 @@
                     <ul>
                         <li><a href="#/"><i class="icon icon-budicon-497"></i> <span>Home</span></a></li>
 
-                        <li><a href="#/login"><i class="icon icon-budicon-279"></i>
-                            <span>Login</span></a>
-                        </li>
-
                         <li>
                             <a href="#/users" style="">
                                 <i class="icon icon-budicon-292"></i> <span style="">Users</span>
@@ -114,7 +128,7 @@
             </div>
 
             <!-- .widget -->
-            <div id="sample-content" ng-view="">
+            <div id="sample-content" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" ng-view="">
                 Content goes here.
             </div>
         </div>
