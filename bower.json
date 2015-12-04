@@ -1,0 +1,29 @@
+{
+  "name": "auth0UserExport",
+  "description": "This is user maintenance, should be more than just export, but there you go, a better name will be forthcoming!",
+  "main": "public/views/index.html",
+  "authors": [
+    "mostekcm"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "homepage": "https://auth0userexport.herokuapp.com/",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datatables": "~0.5.1",
+    "datatables-buttons": "~1.1.0"
+  }
+}
