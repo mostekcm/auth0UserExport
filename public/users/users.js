@@ -7,6 +7,7 @@ angular.module( 'auth0UserExport.users', [
     .controller( 'UsersCtrl', function UsersController( $scope, auth, $resource, store, DTOptionsBuilder, DTColumnBuilder ) {
 
         $scope.auth = auth;
+        $scope.subdomain = 'myauth0';
         $scope.token = 'fake_token';
 
         var vm = this;
@@ -36,7 +37,7 @@ angular.module( 'auth0UserExport.users', [
         vm.dtInstance = {};
 
         function newPromise() {
-            return $resource('https://beautyfullday.auth0.com/api/v2/users', null,
+            return $resource('https://'+$scope.subdomain+'.auth0.com/api/v2/users', null,
                 {
                     query: {
                         isArray: true,

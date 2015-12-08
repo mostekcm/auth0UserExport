@@ -1,5 +1,7 @@
 <div ng-controller="UsersCtrl as showCase">
-    Below is <strong>fake data!</strong> To change that create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  Then click the "Load Data with Token" button.<br/>
+    Below is <strong>fake data!</strong> To change that create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  Then click the "Load Data with Token" button.  You also need to set the subdomain to your subdomain (e.g. myauth0 for myauth0.auth0.com).<br/>
+    <label>auth0 subdomain</label>
+    <input type="text" ng-model="subdomain" required="true"/><br/>
     <label>auth0 token</label>
     <input type="text" ng-model="token" required="true"/><br/>
     <button ng-click="showCase.dtInstance.changeData(showCase.newPromise)" type="button">
