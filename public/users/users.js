@@ -1,47 +1,19 @@
 angular.module( 'auth0UserExport.users', [
         'auth0',
         'datatables',
+        'ngResource',
         'datatables.buttons'
     ])
-    .controller( 'UsersCtrl', function UsersController( $scope, auth, $http, $location, store ) {
+    .controller( 'UsersCtrl', function UsersController( $scope, auth, $resource, store, DTOptionsBuilder, DTColumnBuilder ) {
 
         $scope.auth = auth;
+        $scope.token = 'fake_token';
 
-        /*
         var vm = this;
-        vm.dtOptions = DTOptionBuilder.newOptions()
-            .withOptions('autoWidth', fnThatReturnsAPromise);
 
-        function fnThatReturnsAPromise() {
-            var defer = $q.defer();
-            defer.resolve(false);
-            return defer.promise;
-        }
-         */
-
-        $scope.callApi = function() {
-            // Just call the API as you'd do using $http
-            $http({
-                url: 'https://beautyfullday.auth0.com/api/v2/users',
-                method: 'GET'
-            }).then(function() {
-                alert("We got the secured data successfully");
-            }, function(response) {
-                if (response.status == 0) {
-                    alert("Please download the API seed so that you can call it.");
-                }
-                else {
-                    alert(response.data);
-                }
-            });
-        }
-
-    }).controller('WithButtonsCtrl',
-
-    function WithButtonsCtrl(DTOptionsBuilder, DTColumnBuilder) {
-        var vm = this;
-        vm.dtOptions = DTOptionsBuilder.fromSource('/users/test.data.json')
-            .withDOM('frtip')
+        vm.dtOptions = DTOptionsBuilder.fromFnPromise(function () {
+            return $resource('/users/test.data.json').query().$promise;
+        }).withDOM('frtip')
             .withPaginationType('full_numbers')
             // Active Buttons extension
             .withButtons([
@@ -51,8 +23,40 @@ angular.module( 'auth0UserExport.users', [
                 'csvHtml5',
             ]);
         vm.dtColumns = [
-            DTColumnBuilder.newColumn('id').withTitle('ID'),
-            DTColumnBuilder.newColumn('firstName').withTitle('First name'),
-            DTColumnBuilder.newColumn('lastName').withTitle('Last name')
+            DTColumnBuilder.newColumn('user_id').withTitle('ID').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('name').withTitle('Name').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('given_name').withTitle('First Name').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('family_name').withTitle('Last Name').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('email').withTitle('Email').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('last_login').withTitle('Last Login Datetime').withOption('defaultContent', ''),
+            DTColumnBuilder.newColumn('logins_count').withTitle('Number of Logins').withOption('defaultContent', '')
         ];
+        vm.newPromise = newPromise;
+        vm.reloadData = reloadData;
+        vm.dtInstance = {};
+
+        function newPromise() {
+            return $resource('https://beautyfullday.auth0.com/api/v2/users', null,
+                {
+                    query: {
+                        isArray: true,
+                        method: 'GET',
+                        headers: {
+                            "Authorization": "Bearer "+$scope.token //"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJDMFJiNDZPOXRPVkcwVlMzeG9QeEo1Z3BET0pGQUxrOCIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInJlYWQiXX19LCJpYXQiOjE0NDk1NDM3NDUsImp0aSI6ImM5NDRiNjkyZmYyZjNiOGM5OWE0NDAxYWFiOTlkNGMyIn0.WeXBcl6u7PVs4e6cPXWtkDn83c95PdBoN4lM7zExvp8"
+                        }
+                    }
+                }).query().$promise;
+        }
+
+        function reloadData() {
+            var resetPaging = true;
+            vm.dtInstance.reloadData(callback, resetPaging);
+        }
+
+        function callback(json) {
+            console.log(json);
+        }
+
+
+
     });
