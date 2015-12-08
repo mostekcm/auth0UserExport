@@ -42,7 +42,7 @@ angular.module( 'auth0UserExport.users', [
                         isArray: true,
                         method: 'GET',
                         headers: {
-                            "Authorization": "Bearer "+$scope.token //"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJDMFJiNDZPOXRPVkcwVlMzeG9QeEo1Z3BET0pGQUxrOCIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInJlYWQiXX19LCJpYXQiOjE0NDk1NDM3NDUsImp0aSI6ImM5NDRiNjkyZmYyZjNiOGM5OWE0NDAxYWFiOTlkNGMyIn0.WeXBcl6u7PVs4e6cPXWtkDn83c95PdBoN4lM7zExvp8"
+                            "Authorization": "Bearer "+$scope.token
                         }
                     }
                 }).query().$promise;
