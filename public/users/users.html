@@ -1,5 +1,8 @@
-<div ng-controller="UsersCtrl as showCase">
-    Below is <strong>fake data!</strong> To change that create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  Then click the "Load Data with Token" button.  You also need to set the subdomain to your subdomain (e.g. myauth0 for myauth0.auth0.com).<br/>
+<div ng-controller="UsersCtrl as showCase" style="align-self: left">
+    <strong>Instructions:</strong> To use this table create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  Then click the "Load Data with Token" button.  You also need to set the subdomain to your subdomain (e.g. myauth0 for myauth0.auth0.com).
+    <hr/>
+    <br/>
+    <br/>
     <label>auth0 subdomain</label>
     <input type="text" ng-model="subdomain" required="true"/><br/>
     <label>auth0 token</label>
@@ -7,5 +10,10 @@
     <button ng-click="showCase.dtInstance.changeData(showCase.newPromise)" type="button">
         <i class="fa fa-exchange"></i>&nbsp;Load Data with Token
     </button>
-    <table datatable="" dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns" dt-instance="showCase.dtInstance" class="row-border hover"></table>
+    <hr/>
+    <br/>
+    <br/>
+    <div ng-show="showDataTable">
+        <table datatable="" dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns" dt-instance="showCase.dtInstance" class="row-border hover" style="width:100%;"></table>
+    </div>
 </div>
