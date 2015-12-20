@@ -26,5 +26,8 @@
     "angular-datatables": "~0.5.1",
     "datatables-buttons": "~1.1.0",
     "jquery-datatables-columnfilter": "jquery-datatables-column-filter#*"
+  },
+  "resolutions": {
+    "datatables": ">=1.10.9"
   }
 }
