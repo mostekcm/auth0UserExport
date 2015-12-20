@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/bower/min/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/buttons.css">
     <script src="/bower/min/jquery.js"></script>
-    <script src="/bower/min/jquery.dataTables.js"></script>
+    <script src="/bower/full/jquery.dataTables.js"></script>
     <!-- done loading jquery -->
 
     <script type="text/javascript" src="/auth0-variables.js"></script>
@@ -48,7 +48,9 @@
     <script src="/bower/min/buttons.html5.js"></script>
     <script src="/bower/min/buttons.print.js"></script>
     <script src="/bower/min/dataTables.buttons.js"></script>
+    <script src="/bower/min/jquery.dataTables.columnFilter.js"></script>
     <script src="/bower/min/angular-datatables.buttons.js"></script>
+    <script src="/bower/min/angular-datatables.columnfilter.js"></script>
     <!-- End angular-datatables -->
 
     <!-- Start boilerplate merge -->
@@ -69,6 +71,8 @@
     <script type="text/javascript" src="/home/home.js"></script>
     <script type="text/javascript" src="/login/login.js"></script>
     <script type="text/javascript" src="/users/users.js"></script>
+    <script type="text/javascript" src="/usersConfigure/usersConfigure.js"></script>
+    <script type="text/javascript" src="/usersTable/usersTable.js"></script>
 
 </head>
 <body ng-controller="MainCtrl">
@@ -117,8 +121,15 @@
                         <li><a href="#/"><i class="icon icon-budicon-497"></i> <span>Home</span></a></li>
 
                         <li>
-                            <a href="#/users" style="">
-                                <i class="icon icon-budicon-292"></i> <span style="">Users</span>
+                            <a href="#/usersConfigure" style="">
+                                <i class="icon icon-budicon-292"></i> <span style="">Configure Table</span>
+                                <!-- <span class="users-count label">0</span> -->
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#/usersTable" style="">
+                                <i class="icon icon-budicon-292"></i> <span style="">Users Table</span>
                                 <!-- <span class="users-count label">0</span> -->
                             </a>
                         </li>
@@ -130,7 +141,7 @@
             </div>
 
             <!-- .widget -->
-            <div id="sample-content" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" ng-view="">
+            <div ng-controller="UsersParentCtrl" id="sample-content" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" ng-view="">
                 Content goes here.
             </div>
         </div>

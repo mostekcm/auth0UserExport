@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "angular-datatables": "~0.5.1",
-    "datatables-buttons": "~1.1.0"
+    "datatables-buttons": "~1.1.0",
+    "jquery-datatables-columnfilter": "jquery-datatables-column-filter#*"
   }
 }

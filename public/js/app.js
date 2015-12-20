@@ -5,6 +5,8 @@ angular.module('sample', [
         'auth0UserExport.home',
         'auth0UserExport.login',
         'auth0UserExport.users',
+        'auth0UserExport.users.table',
+        'auth0UserExport.users.configure',
         'angular-storage',
         'angular-jwt',
         'datatables'
@@ -18,10 +20,14 @@ angular.module('sample', [
                 pageTitle: 'Homepage',
                 requiresLogin: true
             })
-            .when('/users', {
-                controller: 'UsersCtrl',
-                templateUrl: '/users/users.html',
-                pageTitle: 'User Administration',
+            .when('/usersConfigure', {
+                templateUrl: '/usersConfigure/usersConfigure.html',
+                pageTitle: 'Configure the Users Information',
+                requiresLogin: true
+            })
+            .when('/usersTable', {
+                templateUrl: '/usersTable/usersTable.html',
+                pageTitle: 'View the Users Information',
                 requiresLogin: true
             })
             .when('/login', {

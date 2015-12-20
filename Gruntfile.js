@@ -11,6 +11,16 @@ module.exports = function (grunt) {
             },
         },
 
+        copy: {
+            post_bower: {
+                src: 'public/bower/full/*.png',
+                flatten: true,
+                filter: 'isFile',
+                expand: true,
+                dest: 'public/bower/images/',
+            },
+        },
+
         uglify: {
             libs: {
                 files: [
@@ -56,6 +66,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     // see above heroku issue: grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('build', ['bower','uglify','cssmin']);
+    grunt.registerTask('build', ['bower','copy:post_bower','uglify','cssmin']);
 }

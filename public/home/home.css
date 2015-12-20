@@ -5,10 +5,11 @@ body{
   font-weight: 100;
 }
 
+/*
 input[type=checkbox],
 input[type=radio] {
   position: absolute;
-  opacity: 0;
+  opacity: 100;
 }
 input[type=checkbox] + label,
 input[type=radio] + label {
@@ -38,7 +39,7 @@ input[type=radio]:focus + label:before,
 input[type=checkbox]:focus + label:before {
   outline: 0;
 }
-
+*/
 .btn{
   font-size: 140%;
   text-transform: uppercase;

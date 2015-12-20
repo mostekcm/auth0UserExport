@@ -1,0 +1,23 @@
+<div ng-controller="UsersTableCtrl as showCase" style="text-align: left">
+    <strong>Instructions:</strong> Configure this table on the table configuration tab.
+    <hr/>
+    <br/>
+    <div class="alert alert-warning" ng-show="userConfigModel.error">
+        {{userConfigModel.error}}
+    </div>
+    <div class="alert alert-info" ng-show="userConfigModel.readyInfo">
+        {{userConfigModel.readyInfo}}
+    </div>
+    <hr/>
+    <br/>
+    <br/>
+    <div ng-show="userConfigModel.showDataTable">
+        <table datatable="" dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns" dt-instance="showCase.dtInstance" class="row-border hover" style="width:100%;">
+            <tfoot>
+                <tr>
+                    <th ng-repeat="field in availableOptions | filter:{use:true}">{{ field.field }}</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
