@@ -20,6 +20,7 @@ You can view this app at [https://auth0userexport.herokuapp.com]
 It is fully usable at that location.  See the "Use Instructions" for how to use it.
 
 If you wish to clone and install follow these steps:
+
 1. Clone the [git repository](https://github.com/mostekcm/auth0UserExport.git)
 1. [Install node and npm](http://howtonode.org/how-to-install-nodejs)
 1. on a command line: **npm install**
