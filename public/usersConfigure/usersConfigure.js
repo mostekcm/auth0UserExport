@@ -5,7 +5,6 @@ angular.module( 'auth0UserExport.users.configure', [
     .controller( 'UsersConfigureCtrl', function UsersConfigureCtrl( $scope, auth, $resource, store ) {
 
         $scope.auth = auth;
-        $scope.chooseFields = false;
 
         /* Reload the data, setting the new promise first */
         $scope.testData = function () {

@@ -1,35 +1,24 @@
 <div ng-controller="UsersConfigureCtrl" style="text-align: left">
-    <strong>Instructions:</strong> To use this table create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  Then click the "Load Data with Token" button.  You also need to set the subdomain to your subdomain (e.g. myauth0 for myauth0.auth0.com).
+    <strong>Instructions:</strong> To configure this table create a token on the <a target="_new" href="https://auth0.com/docs/api/v2#!/Users/get_users">auth0 api docs page</a> and enter it below.  Make sure you have the read:users scope enabled for the token.  You also need to set the subdomain to your subdomain (e.g. myauth0 for myauth0.auth0.com).  Choose which fields you want to display, and change any of the title names to what you would like to show.  You must test the token by clicking "Test Data".  Once you have tested it successfully, go to the User Tables page.
     <hr/>
-    <br/>
     <label>auth0 subdomain</label>
     <input type="text" ng-model="userConfigModel.subdomain" required="true"/><br/>
     <label>auth0 token</label>
     <input type="text" ng-model="userConfigModel.token" required="true"/><br/>
-    <br/>
-    <hr/>
-    <br/>
     <label>Pre-filter the table by adding search parameters here</label>
-    <input type="text" ng-model="userConfigModel.filter">
-    <br/>
-    <button ng-click="chooseFields = true;" type="button" ng-hide="chooseFields">
-        <i class="fa fa-plus"></i>&nbsp; Choose Fields
-    </button>
-    <button ng-click="chooseFields = false;" type="button" ng-show="chooseFields">
-        <i class="fa fa-minus"></i>&nbsp; Done Choosing Fields
-    </button>
-    <br/>
+    <input type="text" ng-model="userConfigModel.filter"><br/>
     <button ng-click="testData()" type="button">
         <i class="fa fa-exchange"></i>&nbsp;Test Data
     </button>
-    <div ng-repeat="option in availableOptions" ng-show="chooseFields">
-        <input type="checkbox" ng-model="option.use"> {{ option.field }} <input type="text" ng-model="option.title">
-    </div>
-    <br/>
     <div class="alert alert-warning" ng-show="userConfigModel.error">
-        {{userConfigModel.error}}
+        <strong>Error: </strong> {{userConfigModel.error}}
     </div>
     <div class="alert alert-info" ng-show="userConfigModel.readyInfo">
         {{userConfigModel.readyInfo}}
+    </div>
+    <hr/>
+    <label>Configure the Columns</label>
+    <div ng-repeat="option in availableOptions">
+        <input type="checkbox" ng-model="option.use"> {{ option.field }} <input type="text" ng-model="option.title">
     </div>
 </div>

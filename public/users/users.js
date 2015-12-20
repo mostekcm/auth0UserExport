@@ -21,9 +21,19 @@ angular.module( 'auth0UserExport.users', [
             { 'field' : 'given_name',              'title' : 'First Name',          'type': 'text',  'use': true},
             { 'field' : 'family_name',             'title' : 'Last Name',           'type': 'text',  'use': true},
             { 'field' : 'email',                   'title' : 'Email',               'type': 'text',  'use': true},
-            { 'field' : 'last_login',              'title' : 'Last Login Datetime', 'type': 'text',  'use': true},
-            { 'field' : 'logins_count',            'title' : 'Logins Count',        'type': 'number','use': true},
+            { 'field' : 'email_verified',          'title' : 'Email Verified',      'type': 'text',  'use': true},
+            { 'field' : 'last_login',              'title' : 'Last Login',          'type': 'text',  'use': true},
+            { 'field' : 'logins_count',            'title' : 'Number of Logins',    'type': 'number','use': true},
+            { 'field' : 'app_metadata.roles[,]',   'title' : 'Roles',               'type': 'text',  'use': true},
             { 'field' : 'identities[,].connection','title' : 'Connection',          'type': 'text',  'use': true},
+            { 'field' : 'identities[,].user_id',   'title' : 'Connection ID',       'type': 'text',  'use': false},
+            { 'field' : 'identities[,].provider',  'title' : 'Connection Provider', 'type': 'text',  'use': false},
+            { 'field' : 'identities[,].isSocial',  'title' : 'Connection Is Social','type': 'text',  'use': false},
+            { 'field' : 'nickname',                'title' : 'Nickname',            'type': 'text',  'use': false},
+            { 'field' : 'gender',                  'title' : 'Gender',              'type': 'text',  'use': false},
+            { 'field' : 'locale',                  'title' : 'Locale',              'type': 'text',  'use': false},
+            { 'field' : 'updated_at',              'title' : 'Updated At',          'type': 'text',  'use': false},
+            { 'field' : 'created_at',              'title' : 'Created At',          'type': 'text',  'use': false},
         ];
 
         /**
