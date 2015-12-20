@@ -24,14 +24,17 @@ If you wish to clone and install follow these steps:
 1. [Install node and npm](http://howtonode.org/how-to-install-nodejs)
 1. on a command line: **npm install**
 1. [install heroku toolbelt](https://toolbelt.heroku.com/)
-1. create a .env file (NOTE: Don't check this in!  You will have to configure these environment variables in your heroku app as well if deploying to heroku)
+1. create a .env file 
+1. on a command line: **heroku local web**
+1. open a browser to: http://localhost:5000
+
+## Example .env file
+**NOTE: Don't check this in!  You will have to configure these environment variables in your heroku app as well if deploying to heroku**
    ```
 AUTH0_CLIENT_ID=<your client ID>
 AUTH0_CLIENT_SECRET=<your client secret>
 AUTH0_DOMAIN=<your subdomain>.auth0.com
    ```
-1. on a command line: **heroku local web**
-1. open a browser to: http://localhost:5000
 
 ## Use Instructions
 
