@@ -5,6 +5,21 @@ angular.module( 'auth0UserExport.users.configure', [
     .controller( 'UsersConfigureCtrl', function UsersConfigureCtrl( $scope, auth, $resource, store ) {
 
         $scope.auth = auth;
+        $scope.newCustomFieldName = '';
+
+        $scope.addNewAvailableOption = function() {
+            if (!$scope.newCustomFieldName) {
+                alert("Bad custom field name");
+                return;
+            }
+            newOption = {
+                field: $scope.newCustomFieldName,
+                title: $scope.newCustomFieldName,
+                type: "text",
+                use: true,
+            }
+            $scope.availableOptions.unshift(newOption);
+        }
 
         /* Reload the data, setting the new promise first */
         $scope.testData = function () {

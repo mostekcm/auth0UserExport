@@ -42,7 +42,7 @@ AUTH0_DOMAIN=<your subdomain>.auth0.com
 1. Go to [https://auth0userexport.herokuapp.com]
 1. Log in
 1. Click Configure Table
-1. Follow instructions
+1. Follow instructions at the top of the page
 
 ## Contributors
 
