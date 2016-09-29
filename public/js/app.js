@@ -31,9 +31,8 @@ angular.module('sample', [
                 requiresLogin: true
             })
             .when('/redirectTest', {
-                templateUrl: '/redirect/redirect.html',
-                pageTitle: 'Send them back to applab',
-                requiresLogin: true
+                templateUrl: '/redirectTest/redirect.html',
+                pageTitle: 'Send them back to applab'
             })
             .when('/login', {
                 controller: 'LoginCtrl',
