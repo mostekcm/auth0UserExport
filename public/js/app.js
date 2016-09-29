@@ -32,7 +32,8 @@ angular.module('sample', [
             })
             .when('/redirectTest', {
                 templateUrl: '/redirect/redirect.html',
-                pageTitle: 'Send them back to applab'
+                pageTitle: 'Send them back to applab',
+                requiresLogin: true
             })
             .when('/login', {
                 controller: 'LoginCtrl',
